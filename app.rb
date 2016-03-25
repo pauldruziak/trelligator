@@ -16,6 +16,7 @@ end
 
 post '/webhook' do
   p params
-  p request.body
+  data = JSON.parse request.body.ready
+  p data
   status 200
 end
