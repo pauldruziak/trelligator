@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module Trelligator
   # Update status on Pull Request
   class GithubPullRequest

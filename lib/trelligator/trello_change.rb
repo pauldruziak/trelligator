@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module Trelligator
   # Wrapper for Trello Webhook Response
   class TrelloChange

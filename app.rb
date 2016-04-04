@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require 'sinatra'
 require 'trello'
 require_relative 'lib/trelligator'
