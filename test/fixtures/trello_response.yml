@@ -1,0 +1,32 @@
+valid:
+  action:
+    type: 'updateCard'
+    data:
+      listBefore: 'QA'
+      listAfter: 'Review'
+      card:
+        id: '56fd1c7dc5743902e4ad40a4'
+    memberCreator:
+      fullName: 'James Bond'
+
+wrong_type:
+  action:
+    type: 'somethingElse'
+    data:
+      listBefore: 'QA'
+      listAfter: 'Review'
+      card:
+        id: '56fd1c7dc5743902e4ad40a4'
+    memberCreator:
+      fullName: 'James Bond'
+
+without_columns:
+  action:
+    type: 'updateCard'
+    data:
+      listBefore: 'QA'
+      listAfter: 
+      card:
+        id: '56fd1c7dc5743902e4ad40a4'
+    memberCreator:
+      fullName: 'James Bond'

@@ -22,19 +22,7 @@ class MainAppTest < Minitest::Test
 end
 
 class WebhookWithStatusChangedTest < Minitest::Test
-  def trello_response
-    {
-      action: {
-        type: 'updateCard',
-        data: {
-          listBefore: 'QA',
-          listAfter: 'Review',
-          card: { id: '56fd1c7dc5743902e4ad40a4' }
-        },
-        memberCreator: { fullName: 'James Bond' }
-      }
-    }
-  end
+  include ::TrelloFixtures
 
   def test_webhook
     mock = MiniTest::Mock.new
@@ -43,7 +31,7 @@ class WebhookWithStatusChangedTest < Minitest::Test
     end
     VCR.use_cassette('pull_requests', record: :none) do
       Trelligator::GithubPullRequest.stub(:new, mock) do
-        post '/webhook', trello_response.to_json
+        post '/webhook', trello_response(:valid).to_json
       end
     end
     assert last_response.ok?

@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 module Trelligator
+  # Trello status object
   class TrelloStatus
     attr_reader :card_id, :list_before, :list_after, :member
 
