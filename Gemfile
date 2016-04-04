@@ -9,3 +9,10 @@ gem 'ruby-trello'
 group :development do
   gem 'rubocop'
 end
+
+group :test do
+  gem 'minitest'
+  gem 'rack-test'
+  gem 'vcr'
+  gem 'webmock'
+end

@@ -1,5 +1,6 @@
 require 'sinatra'
 require 'trello'
+require_relative 'lib/trelligator'
 
 Trello.configure do |config|
   config.developer_public_key = ENV['TRELLO_DEVELOPER_PUBLIC_KEY']
@@ -15,8 +16,9 @@ head '/webhook' do
 end
 
 post '/webhook' do
-  p params
-  data = JSON.parse request.body.read
-  p data
+  trello = Trelligator::TrelloChange.parse(request.body.read)
+  if trello.status_changed?
+    trello.pull_requests.each { |pr| pr.update trello.status }
+  end
   status 200
 end

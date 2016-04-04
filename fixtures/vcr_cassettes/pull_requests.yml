@@ -1,0 +1,140 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.trello.com/1/cards/56fd1c7dc5743902e4ad40a4?key=foo&token=bar
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - max-age=0, must-revalidate, no-cache, no-store
+      X-Content-Type-Options:
+      - nosniff
+      Strict-Transport-Security:
+      - max-age=15768000
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Frame-Options:
+      - DENY
+      X-Trello-Version:
+      - 1.608.1
+      X-Trello-Environment:
+      - Production
+      Set-Cookie:
+      - dsc=478f516a686655d117cee15734cc9e0a00b88912a5f2d28f0ec36c903067c916; Path=/;
+        Expires=Mon, 04 Apr 2016 13:59:14 GMT; Secure
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET, PUT, POST, DELETE
+      X-Server-Time:
+      - '1459519154897'
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00
+      Content-Type:
+      - application/json; charset=utf-8
+      Etag:
+      - W/"1iv3RV4XL825KawdpuMh2w=="
+      Vary:
+      - Accept-Encoding
+      Content-Encoding:
+      - gzip
+      Date:
+      - Fri, 01 Apr 2016 13:59:14 GMT
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAA51U227cNhD9FVp+aAuvbtRlV0JR1HGNIIFTB4mToHUMlSJH
+        K9ZcUaCozTpB/r1Dyet1HpwC0dPwcHg4h3NGXzwpvNLL8kbEfCl4tkyTIqKQ
+        MpFGLPUWXs3EGgav/OJttXVBtPC2Ej7Jbv0KNjWY9wgjR8PUAAtvGOuBG1k7
+        yJoRkUav63H9GW9BNt4Cv31hYTMTHZZnLnKHHKo3G+jsnMKsZby9X8cLT4Dj
+        763U3f4GMYJXdqNSXx8xvrVsKvf6BkGlh0c1Cty5YIM95VZupb3D0mgU536U
+        +El8RWkZL8s4CqI0/9ubL8SM42PyjPFbaxiHj93HjuCnZAeEphnRDbl+/eby
+        5fnZVfXm8vLqJlSyDmGLVYdrrdcKKs4UdIKZivUyMHVJDPKOQGRHuJKYWMEO
+        +Gjh6Bvu+Ie4v8NIkx9ifOhr1WhT9ePQVp22spGcuVYMR+5Nrt+jMUiDnSD1
+        /q0I6wTZaOOUNpowS1rdwd1kKxNIffNza20/lGHI+j74di/sjf4XuB3COCui
+        sGGjwpgWSRyvkuSX++b8wSyb+//ICgsPNkwqbFzPtqCEGT/fsduTLE5pnMdJ
+        XaDf0eqZiCKaL+nJUxNwQmOWpsusaGjDG55FIqqzmmXFMk2bZY5HVnkEPGl+
+        rzUzYgisAaV0gB7G8qR45tBpwjKggq5Eg0cTKqKcFiJJ8ilpMr+Sg733qxQX
+        rAZ1WOHW0xzFxDEPozviPSXSm8jettogGy0itzp9GK8zvQWzf7wN60amJuiQ
+        8TBA6lF1Hdvgk3vXH4Ap29Z6R3zyAWpy2veufWLkzh835E/9Cmyrxbkx2pRk
+        7AQ0aEj0xgSTfww0OBJtxTiHYaisvoXu6CeCdiPHvz6fbFmWp69fnE3eLqNd
+        EAS/ofReYyXZqljRpMD/j1P3zrjG73116EjIw/Pneneh/3J/tvH/s9Brkf9p
+        rwyj2keX+gddfqfn+sHJ8h9U+TPq34vyZ1H+JMpHSf48Z8gm51n1o5339T8T
+        TPTujgUAAA==
+    http_version:
+  recorded_at: Fri, 01 Apr 2016 13:59:14 GMT
+- request:
+    method: get
+    uri: https://api.trello.com/1/cards/56fd1c7dc5743902e4ad40a4/attachments?key=foo&token=bar
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - max-age=0, must-revalidate, no-cache, no-store
+      X-Content-Type-Options:
+      - nosniff
+      Strict-Transport-Security:
+      - max-age=15768000
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Frame-Options:
+      - DENY
+      X-Trello-Version:
+      - 1.608.1
+      X-Trello-Environment:
+      - Production
+      Set-Cookie:
+      - dsc=b9eb4768f61e78bfbfe6dd1ad7aee7626f4c9645fb6225129585d29da70c82f4; Path=/;
+        Expires=Mon, 04 Apr 2016 13:59:15 GMT; Secure
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET, PUT, POST, DELETE
+      X-Server-Time:
+      - '1459519155505'
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '261'
+      Etag:
+      - W/"105-a2e379c8"
+      Vary:
+      - Accept-Encoding
+      Date:
+      - Fri, 01 Apr 2016 13:59:15 GMT
+    body:
+      encoding: UTF-8
+      string: '[{"id":"56fda1e0f410769c5b372e19","bytes":null,"date":"2016-03-31T22:17:04.357Z","edgeColor":null,"idMember":"51421613b9d1c4395d002672","isUpload":false,"mimeType":"","name":"#2795
+        wip","previews":[],"url":"https://github.com/gothamtechlabs/crm-web/pull/2795"}]'
+    http_version:
+  recorded_at: Fri, 01 Apr 2016 13:59:15 GMT
+recorded_with: VCR 3.0.1

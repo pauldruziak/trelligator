@@ -5,7 +5,7 @@ namespace :trello do
   task :create_webhook do
     raise 'Setup CALLBACK_URL varibale' if ENV['CALLBACK_URL'].nil?
     webhook = Trello::Webhook.create(
-      description: 'Callback for Trellogator',
+      description: 'Callback for Trelligator',
       id_model: '565e2d28df59732d0629d336',
       callback_url: ENV['CALLBACK_URL']
     )
