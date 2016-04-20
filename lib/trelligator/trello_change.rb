@@ -30,7 +30,7 @@ module Trelligator
     end
 
     private
-    
+
     def card_updated?
       action['type'] == 'updateCard'
     end
