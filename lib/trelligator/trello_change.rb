@@ -12,16 +12,12 @@ module Trelligator
       @action = Hash(options['action'])
     end
 
+    def card_id
+      action['data']['card']['id']
+    end
+
     def status_changed?
       card_updated? && list_before.present? && list_after.present?
-    end
-
-    def card_updated?
-      action['type'] == 'updateCard'
-    end
-
-    def status_message
-      "Moved from #{list_before} to #{list_after} by #{member}"
     end
 
     def status
@@ -33,17 +29,10 @@ module Trelligator
       )
     end
 
-    def pull_requests
-      card = Trello::Card.find card_id
-      card.attachments.select { |a| a.url =~ %r{^http(?:s):\/\/github\.com\/[a-z\/-]*\/pull} }.map do |a|
-        GithubPullRequest.new(a.url)
-      end
-    end
-
     private
-
-    def card_id
-      action['data']['card']['id']
+    
+    def card_updated?
+      action['type'] == 'updateCard'
     end
 
     def list_before

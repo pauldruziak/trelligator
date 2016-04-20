@@ -10,5 +10,9 @@ module Trelligator
       @list_after = list_after
       @member = member
     end
+
+    def status_message
+      "Moved from #{list_before} to #{list_after} by #{member}"
+    end
   end
 end

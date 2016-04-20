@@ -29,17 +29,5 @@ module Trelligator
       assert trello_response(:without_columns)['action']['data']['listAfter'].blank?
       assert !trello.status_changed?, 'Status should not be changed'
     end
-
-    def test_pull_requests
-      trello = TrelloChange.parse trello_response(:valid).to_json
-
-      VCR.use_cassette('pull_requests', record: :none) do
-        pr = trello.pull_requests.first
-        assert pr.is_a?(GithubPullRequest),
-               "Should be GithubPullRequest, not #{trello.class.name}"
-
-        assert pr.url, 'https://github.com/gothamtechlabs/crm-web/pull/2795'
-      end
-    end
   end
 end

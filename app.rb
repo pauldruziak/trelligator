@@ -19,7 +19,9 @@ end
 post '/webhook' do
   trello = Trelligator::TrelloChange.parse(request.body.read)
   if trello.status_changed?
-    trello.pull_requests.each { |pr| pr.update trello.status }
+    Trelligator::GithubPullRequest.pull_requests_from_trello_card(trello.card_id).each do |pr|
+      pr.update trello.status
+    end
   end
   status 200
 end
