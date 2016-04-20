@@ -8,6 +8,8 @@ engines:
     enabled: true
   reek:
     enabled: true
+    exclude_paths:
+    - test/
   duplication:
     enabled: true
     config:
