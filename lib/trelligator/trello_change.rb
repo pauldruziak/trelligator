@@ -2,14 +2,16 @@
 module Trelligator
   # Wrapper for Trello Webhook Response
   class TrelloChange
-    attr_reader :action
-    def self.parse(body)
+    attr_reader :action, :list_order
+
+    def self.from_response(body)
       data = JSON.parse body
       new(data)
     end
 
-    def initialize(options)
+    def initialize(options, list_order: ListOrder.new)
       @action = Hash(options['action'])
+      @list_order = list_order
     end
 
     def card_id
@@ -20,13 +22,18 @@ module Trelligator
       card_updated? && list_before.present? && list_after.present?
     end
 
-    def status
-      @status ||= TrelloStatus.new(
-        card_id: card_id,
-        list_before: list_before,
-        list_after: list_after,
-        member: member
-      )
+    def description
+      "Moved from #{list_before} to #{list_after} by #{member}"
+    end
+
+    def state
+      if finished?
+        'success'
+      elsif moved_backward?
+        'failure'
+      else
+        'pending'
+      end
     end
 
     private
@@ -45,6 +52,35 @@ module Trelligator
 
     def member
       action['memberCreator']['fullName']
+    end
+
+    def finished?
+      position_for_list(list_after).zero?
+    end
+
+    def moved_backward?
+      position_for_list(list_after) > position_for_list(list_before)
+    end
+
+    def position_for_list(list_name)
+      list_order.position_for(list_name)
+    end
+
+    # Simple class to manage order of lists. In future it should be configured by user for every Trello board.
+    class ListOrder
+      attr_reader :list_order
+      def initialize
+        @list_order = [
+          'Ready for deploy',
+          'QA',
+          'Code Review',
+          'In Progress'
+        ].freeze
+      end
+
+      def position_for(list_name)
+        list_order.index(list_name) || -1
+      end
     end
   end
 end

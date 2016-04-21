@@ -6,6 +6,7 @@ gem 'sinatra'
 gem 'puma'
 gem 'rake'
 gem 'ruby-trello'
+gem 'octokit'
 
 group :development do
   gem 'rubocop'

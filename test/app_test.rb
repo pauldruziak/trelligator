@@ -26,8 +26,8 @@ class WebhookWithStatusChangedTest < Minitest::Test
 
   def test_webhook
     mock = MiniTest::Mock.new
-    mock.expect(:update, nil) do |status|
-      status.list_before == 'QA' && status.list_after == 'Review'
+    mock.expect(:update_status, true) do |args|
+      args[:state] == 'pending' && args[:description] == 'Moved from QA to Review by James Bond'
     end
     VCR.use_cassette('pull_requests', record: :none) do
       Trelligator::GithubPullRequest.stub(:new, mock) do
