@@ -23,7 +23,7 @@ module Trelligator
     end
 
     def description
-      "Moved from #{list_before} to #{list_after} by #{member}"
+      "#{member} moved to '#{list_after}' from '#{list_before}'"[0..140]
     end
 
     def state
