@@ -2,8 +2,10 @@ valid:
   action:
     type: 'updateCard'
     data:
-      listBefore: 'QA'
-      listAfter: 'Review'
+      listBefore:
+        name: 'QA'
+      listAfter:
+        name: 'Review'
       card:
         id: '56fd1c7dc5743902e4ad40a4'
     memberCreator:
@@ -13,8 +15,10 @@ wrong_type:
   action:
     type: 'somethingElse'
     data:
-      listBefore: 'QA'
-      listAfter: 'Review'
+      listBefore:
+        name: 'QA'
+      listAfter:
+        name: 'Review'
       card:
         id: '56fd1c7dc5743902e4ad40a4'
     memberCreator:
@@ -24,8 +28,9 @@ without_columns:
   action:
     type: 'updateCard'
     data:
-      listBefore: 'QA'
-      listAfter: 
+      listBefore:
+        name: 'QA'
+      listAfter:
       card:
         id: '56fd1c7dc5743902e4ad40a4'
     memberCreator:

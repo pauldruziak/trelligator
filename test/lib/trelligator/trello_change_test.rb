@@ -55,7 +55,9 @@ module Trelligator
     end
 
     def build_trello_change(after:, before: '')
-      TrelloChange.new('action' => { 'data' => { 'listAfter' => after, 'listBefore' => before } })
+      TrelloChange.new(
+        'action' => { 'data' => { 'listAfter' => { 'name' => after }, 'listBefore' => { 'name' => before } } }
+      )
     end
   end
 end

@@ -15,7 +15,7 @@ module Trelligator
     end
 
     def card_id
-      action['data']['card']['id']
+      action.dig('data', 'card', 'id')
     end
 
     def status_changed?
@@ -23,7 +23,7 @@ module Trelligator
     end
 
     def description
-      "#{member} moved to '#{list_after}' from '#{list_before}'"[0..140]
+      "#{member} moved to '#{list_after}' from '#{list_before}'"[0...140]
     end
 
     def state
@@ -43,15 +43,15 @@ module Trelligator
     end
 
     def list_before
-      action['data']['listBefore']
+      action.dig('data', 'listBefore', 'name')
     end
 
     def list_after
-      action['data']['listAfter']
+      action.dig('data', 'listAfter', 'name')
     end
 
     def member
-      action['memberCreator']['fullName']
+      action.dig('memberCreator', 'fullName')
     end
 
     def finished?
