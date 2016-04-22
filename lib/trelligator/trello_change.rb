@@ -59,7 +59,7 @@ module Trelligator
     end
 
     def moved_backward?
-      position_for_list(list_after) < position_for_list(list_before)
+      position_for_list(list_after) > position_for_list(list_before)
     end
 
     def position_for_list(list_name)
@@ -74,7 +74,8 @@ module Trelligator
           'Ready for deploy',
           'QA',
           'Code Review',
-          'In Progress'
+          'In Progress',
+          'Next Up'
         ].freeze
       end
 

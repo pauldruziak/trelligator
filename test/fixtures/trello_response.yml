@@ -3,9 +3,9 @@ valid:
     type: 'updateCard'
     data:
       listBefore:
-        name: 'QA'
+        name: 'Code Review'
       listAfter:
-        name: 'Review'
+        name: 'QA'
       card:
         id: '56fd1c7dc5743902e4ad40a4'
     memberCreator:
