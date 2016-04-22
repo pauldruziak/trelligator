@@ -20,6 +20,8 @@ module Trelligator
     end
 
     def update_status(state: 'pending', description:)
+      logger = Logger.new(STDOUT)
+      logger.info [repo, sha, state, description]
       github_client.create_status(
         repo,
         sha,
