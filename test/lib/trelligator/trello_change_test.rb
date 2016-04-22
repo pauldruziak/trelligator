@@ -37,19 +37,19 @@ module Trelligator
     end
 
     def test_state_pending
-      trello = build_trello_change(after: 'QA', before: 'Code Review')
+      trello = build_trello_change(after: 'In Progress', before: 'Next Up')
 
       assert_equal trello.state, 'pending'
     end
 
     def test_state_failure
-      trello = build_trello_change(after: 'Code Review', before: 'QA')
+      trello = build_trello_change(after: 'Next Up', before: 'In Progress')
 
       assert_equal trello.state, 'failure'
     end
 
     def test_state_pending_when_list_unknown
-      trello = build_trello_change(after: 'Unknown', before: 'QA')
+      trello = build_trello_change(after: 'Unknown', before: 'Next Up')
 
       assert_equal trello.state, 'pending'
     end

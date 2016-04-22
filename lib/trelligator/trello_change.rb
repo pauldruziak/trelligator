@@ -59,7 +59,7 @@ module Trelligator
     end
 
     def moved_backward?
-      position_for_list(list_after) > position_for_list(list_before)
+      position_for_list(list_after) < position_for_list(list_before)
     end
 
     def position_for_list(list_name)
