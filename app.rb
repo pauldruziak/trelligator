@@ -25,7 +25,7 @@ post '/webhook' do
   if trello.status_changed?
     card = Trello::Card.find trello.card_id
     Trelligator::GithubPullRequest.from_trello_card(card).each do |pr|
-      pr.update_status state: trello.state, description: trello.description
+      pr.update trello
     end
   end
   status 200
