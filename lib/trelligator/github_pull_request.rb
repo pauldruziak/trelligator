@@ -19,6 +19,11 @@ module Trelligator
       end
     end
 
+    def update(card)
+      update_status state: card.state, description: card.description
+      update_label label: label_for(card.current_list)
+    end
+
     def update_status(state: 'pending', description:)
       github_client.create_status(
         repo,
@@ -26,6 +31,10 @@ module Trelligator
         state,
         'description' => description, 'context' => 'trelligator'
       )
+    end
+
+    def update_label(label:)
+      github_client.replace_all_labels(repo, pr_number, [label])
     end
 
     def repo
@@ -38,6 +47,15 @@ module Trelligator
 
     def sha
       @sha ||= github_client.pull_request(repo, pr_number)['head']['sha'].to_s
+    end
+
+    def label_for(list)
+      {
+        'Ready for deploy' => 'ready for deploy',
+        'QA' => 'qa',
+        'Code Review' => 'code review',
+        'In Progress' => 'wip'
+      }.fetch(list) { 'wip' }
     end
   end
 end

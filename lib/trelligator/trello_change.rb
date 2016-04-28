@@ -49,6 +49,7 @@ module Trelligator
     def list_after
       action.dig('data', 'listAfter', 'name')
     end
+    alias current_list list_after
 
     def member
       action.dig('memberCreator', 'fullName')
