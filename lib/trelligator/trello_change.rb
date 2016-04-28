@@ -36,6 +36,10 @@ module Trelligator
       end
     end
 
+    def current_list
+      list_after
+    end
+
     private
 
     def card_updated?
@@ -49,7 +53,6 @@ module Trelligator
     def list_after
       action.dig('data', 'listAfter', 'name')
     end
-    alias current_list list_after
 
     def member
       action.dig('memberCreator', 'fullName')
